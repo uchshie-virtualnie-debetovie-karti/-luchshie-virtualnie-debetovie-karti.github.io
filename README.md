@@ -1,14 +1,12 @@
-# Статья-лендинг на GitHub Pages (Virtual Debit Cards)
+ Статья-лендинг на GitHub Pages (Virtual Debit Cards)
 
 Этот репозиторий содержит статический одностраничный сайт в формате статьи. Сайт публикуется через GitHub Pages и открыт к индексации.
 
 ---
 
-## Быстрые ссылки (замените USERNAME)
-- Сайт: `https://USERNAME.github.io/`
-- Репозиторий: `https://github.com/USERNAME/USERNAME.github.io`
-
-> ВАЖНО: если репозиторий называется `USERNAME.github.io`, GitHub Pages будет открываться **без** `/repo/` — прямо по адресу `https://USERNAME.github.io/`.
+## Быстрые ссылки
+- Сайт: https://luchshie-virtualniye-debetovie-karti.github.io/
+- Репозиторий: https://github.com/luchshie-virtualniye-debetovie-karti/luchshie-virtualniye-debetovie-karti.github.io
 
 ---
 
@@ -85,52 +83,6 @@
 
 <a href="https://example.com" target="_blank" rel="noopener">example.com</a>
 
-    Адрес меняется в href="..."
-
-    Текст ссылки меняется между >...<
-
-    target="_blank" открывает ссылку в новой вкладке (можно оставить)
-
-Блоки сервисов (синие разделители)
-
-Каждый сервис оформлен отдельным блоком для удобства чтения:
-
-<section class="service">
-  <h3>Название сервиса</h3>
-  <p>Описание...</p>
-  <p>Ссылка: <a href="https://site.com">site.com</a></p>
-  <ul>...</ul>
-</section>
-
-Чтобы добавить новый сервис:
-
-    Скопируйте любой существующий блок <section class="service">...</section>
-
-    Вставьте его ниже
-
-    Измените текст и ссылку
-
-Как добавить изображение в статью
-Шаг 1: загрузить изображение
-
-    Откройте папку assets/img/
-
-    Нажмите Add file → Upload files
-
-    Загрузите картинку (например photo.jpg)
-
-Шаг 2: вставить изображение в текст
-
-В нужном месте статьи вставьте:
-
-<img src="assets/img/photo.jpg" alt="Короткое описание" loading="lazy">
-
-Рекомендации:
-
-    alt обязателен (полезен для SEO и доступности)
-
-    loading="lazy" ускоряет загрузку
-
 SEO-минимум (Title / Description)
 
 SEO-поля находятся в <head> файла index.html:
@@ -139,31 +91,13 @@ SEO-поля находятся в <head> файла index.html:
 <meta name="description" content="...">
 <meta name="robots" content="index, follow">
 
-    Title — заголовок вкладки и поисковой выдачи
-
-    Description — описание в поисковой выдаче
-
-    Robots — индексация (у нас включена)
-
 Индексация (robots.txt и sitemap.xml)
-robots.txt
 
-Файл разрешает индексацию и указывает sitemap:
+    robots.txt разрешает индексацию и указывает sitemap:
+    https://luchshie-virtualniye-debetovie-karti.github.io/sitemap.xml
 
-User-agent: *
-Allow: /
-
-Sitemap: https://USERNAME.github.io/sitemap.xml
-
-    Замените USERNAME на свой логин GitHub.
-
-sitemap.xml
-
-Файл содержит URL главной страницы:
-
-<loc>https://USERNAME.github.io/</loc>
-
-    Замените USERNAME на свой логин GitHub.
+    sitemap.xml содержит URL главной страницы:
+    https://luchshie-virtualniye-debetovie-karti.github.io/
 
 Как включить GitHub Pages (публикация)
 
@@ -179,23 +113,7 @@ sitemap.xml
 
     Save
 
-После публикации сайт будет доступен по адресу:
-
-    https://USERNAME.github.io/
-
-Как проверить “правильный” URL (без /repo/)
-
-Чтобы сайт открывался без /repo/, репозиторий должен называться:
-
-    USERNAME.github.io
-
-Если репозиторий называется иначе, будет формат project pages:
-
-    https://USERNAME.github.io/REPO_NAME/
-
 Если изменения не видны (кэш браузера)
-
-Иногда браузер держит старые стили.
 
     Обновите страницу жёстко:
 
