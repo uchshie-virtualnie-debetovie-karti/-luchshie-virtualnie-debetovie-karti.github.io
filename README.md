@@ -1,130 +1,240 @@
- Статья-лендинг на GitHub Pages (Virtual Debit Cards)
+# GitHub Pages — одностраничный сайт-статья (HTML/CSS/JS)
 
-Этот репозиторий содержит статический одностраничный сайт в формате статьи. Сайт публикуется через GitHub Pages и открыт к индексации.
-
----
-
-## Быстрые ссылки
-- Сайт: https://luchshie-virtualniye-debetovie-karti.github.io/
-- Репозиторий: https://github.com/luchshie-virtualniye-debetovie-karti/luchshie-virtualniye-debetovie-karti.github.io
+Статический сайт в формате текстовой статьи: H1 + H2/H3, списки, блоки сервисов с “синим разделением”, авто-оглавление.  
+Размещается на GitHub Pages, открыт к индексации (robots: index, follow), без тяжёлых библиотек.
 
 ---
 
-## Структура проекта
+## 1) Состав проекта (структура папок)
 
-/index.html
-/robots.txt
-/sitemap.xml
-/README.md
-/assets/css/styles.css
-/assets/js/main.js
-/assets/img/logo.svg
-/assets/img/favicon.svg
-/assets/img/ (доп. изображения статьи)
+/
+index.html
+assets/
+css/
+styles.css
+js/
+main.js
+img/
+favicon.svg
+(другие изображения при необходимости)
 
-
-**За что отвечает каждый файл:**
-- `index.html` — вся страница (H1, текст статьи, ссылки, SEO: title/description, подключение стилей/скриптов).
-- `assets/css/styles.css` — дизайн: типографика, отступы, вид ссылок (синие), блоки сервисов с синим разделителем, адаптивность.
-- `assets/js/main.js` — оглавление (справа и на мобильном), подсветка активного раздела при прокрутке, год в футере.
-- `assets/img/logo.svg` — логотип в шапке.
-- `assets/img/favicon.svg` — иконка вкладки (favicon).
-- `robots.txt` — разрешение индексации + ссылка на sitemap.
-- `sitemap.xml` — карта сайта (1 URL).
 
 ---
 
-## Как редактировать текст статьи
+## 2) Что уже настроено
 
-1) Откройте репозиторий → файл `index.html`.  
-2) Нажмите **Edit (карандаш)**.  
-3) Найдите блок:
+- Адаптивная вёрстка под телефон и десктоп
+- Минималистичный дизайн, 1 акцентный цвет (ссылки/разделители)
+- SEO минимум: `<title>`, `description`, `robots`, `canonical`, корректная структура H1/H2/H3
+- Ссылки визуально выделены (синие + подчёркивание)
+- Блоки сервисов оформлены карточками (border-left акцентным цветом)
+- Оглавление:
+  - на десктопе — справа
+  - на мобилке — только сверху (справа блок скрыт)
+- Подключена аналитика:
+  - Google Analytics (GA4 / gtag.js)
+  - Яндекс.Метрика
+
+---
+
+## 3) Быстрые правки (где что менять)
+
+### 3.1. Заголовок страницы (H1)
+Файл: `index.html`  
+Найдите:
 ```html
-<!-- ===================== ARTICLE START ===================== -->
-...текст...
-<!-- ===================== ARTICLE END ===================== -->
+<h1>...</h1>
 
-    Редактируйте контент только внутри этого блока.
+Замените текст внутри.
+3.2. SEO: title / description
 
-    Нажмите Commit changes — сайт обновится обычно через 1–3 минуты.
-
-Разметка текста (H1 / H2 / H3 / списки)
-Главный заголовок (H1)
-
-На странице должен быть один H1:
-
-<h1>Заголовок страницы</h1>
-
-Разделы (H2)
-
-<h2>Название раздела</h2>
-
-Подразделы (H3)
-
-<h3>Название подраздела</h3>
-
-Маркированный список
-
-<ul>
-  <li>Пункт 1</li>
-  <li>Пункт 2</li>
-</ul>
-
-Нумерованный список
-
-<ol>
-  <li>Шаг 1</li>
-  <li>Шаг 2</li>
-</ol>
-
-Как редактировать ссылки
-
-Ссылка в тексте оформляется так:
-
-<a href="https://example.com" target="_blank" rel="noopener">example.com</a>
-
-SEO-минимум (Title / Description)
-
-SEO-поля находятся в <head> файла index.html:
+Файл: index.html → внутри <head>:
 
 <title>...</title>
-<meta name="description" content="...">
-<meta name="robots" content="index, follow">
+<meta name="description" content="..." />
 
-Индексация (robots.txt и sitemap.xml)
+3.3. Canonical
 
-    robots.txt разрешает индексацию и указывает sitemap:
-    https://luchshie-virtualniye-debetovie-karti.github.io/sitemap.xml
+Файл: index.html:
 
-    sitemap.xml содержит URL главной страницы:
-    https://luchshie-virtualniye-debetovie-karti.github.io/
+<link rel="canonical" href="https://ВАШ-ДОМЕН.github.io/" />
 
-Как включить GitHub Pages (публикация)
+3.4. Текст статьи (весь контент)
 
-    Репозиторий → Settings
+Файл: index.html
+Контент расположен внутри:
 
-    Слева → Pages
+<article class="article"> ... </article>
 
-    Source: Deploy from branch
+Там же находятся:
+
+    заголовки h2, h3
+
+    списки ul/ol
+
+    абзацы p
+
+    блоки сервисов
+
+3.5. Ссылки (редиректы)
+
+Все внешние ссылки оформлены так:
+
+<a href="https://virtualcards.su/hRJdIU" target="_blank" rel="noopener">domain.com</a>
+
+Чтобы поменять редирект:
+
+    меняйте только href="...",
+
+    текст domain.com можно оставлять читабельным.
+
+Важно:
+
+    внутренние ссылки оглавления вида #... не редиректные — это навигация по странице.
+
+4) Дизайн (CSS) — что менять
+
+Файл: assets/css/styles.css
+4.1. Акцентный цвет (ссылки и “синяя полоса” в блоках)
+
+Вверху файла:
+
+:root{
+  --accent:#2563eb;
+}
+
+4.2. Отступы на мобилке (слева/справа)
+
+Отступы задаёт .container. Для мобильных включён отдельный блок:
+
+@media (max-width: 980px){
+  .container{
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+  }
+}
+
+4.3. “Синее разделение” между сервисами
+
+Стили карточек сервисов:
+
+.service{
+  border-left: 4px solid var(--accent);
+}
+
+5) Оглавление (TOC) — как работает
+
+Файл: assets/js/main.js
+
+Скрипт автоматически:
+
+    находит h2 и h3 внутри .article,
+
+    создаёт/назначает им id,
+
+    строит оглавление на десктопе справа и мобильное сверху,
+
+    подсвечивает активный пункт при прокрутке.
+
+6) Аналитика: Google (GA4) и Яндекс.Метрика
+
+Коды вставлены в index.html в блоке <head>.
+6.1. Google Analytics (GA4)
+
+Блок выглядит примерно так:
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+Чтобы заменить счётчик GA4:
+
+    поменяйте G-XXXXXXXXXX в 2 местах.
+
+6.2. Яндекс.Метрика
+
+Блок выглядит примерно так:
+
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=XXXXXXXX', 'ym');
+
+  ym(XXXXXXXX, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+Чтобы заменить ID Метрики:
+
+    поменяйте XXXXXXXX в 3 местах:
+
+        tag.js?id=XXXXXXXX
+
+        ym(XXXXXXXX, 'init', ...)
+
+        /watch/XXXXXXXX
+
+7) Публикация на GitHub Pages
+
+    Загрузите проект в репозиторий (важно: index.html должен быть в корне репо).
+
+    Репозиторий → Settings → Pages
+
+    Build and deployment:
+
+    Source: Deploy from a branch
 
     Branch: main
 
-    Folder: /(root)
+    Folder: / (root)
 
-    Save
+    Сохраните — через 1–5 минут появится ссылка.
 
-Если изменения не видны (кэш браузера)
+Важное про URL
 
-    Обновите страницу жёстко:
+    Если нужен URL вида https://username.github.io/
+    репозиторий должен называться username.github.io
 
-    Windows: Ctrl + F5
+    Если репозиторий обычный (например site)
+    URL будет https://username.github.io/site/
 
-    Mac: Cmd + Shift + R
+8) Проверка перед сдачей (чек-лист)
 
-    Откройте сайт в режиме инкогнито.
+Сайт открывается по GitHub Pages
 
-    Увеличьте версию CSS в index.html:
+H1 один на странице
 
-<link rel="stylesheet" href="assets/css/styles.css?v=1" />
+Есть title и description
 
-Поменяйте v=1 → v=2, сохраните и сделайте Commit.
+Ссылки кликабельны и визуально выделены
+
+На мобилке есть отступы слева/справа
+
+Оглавление справа скрыто на мобилке
+
+    GA4 и Яндекс.Метрика вставлены в <head>
+
+9) Короткая инструкция 5–10 строк (для заказчика)
+
+    Текст и структура статьи меняются в index.html внутри <article class="article"> ... </article>.
+
+    Заголовок страницы (H1) — в index.html в теге <h1>.
+
+    Title/Description — в index.html внутри <head>.
+
+    Ссылки меняются в index.html — обновляйте href="..." у тегов <a>.
+
+    Цвет ссылок/разделителей — assets/css/styles.css переменная --accent.
+
+    Оглавление формируется автоматически из H2/H3 (скрипт assets/js/main.js).
+
+    GA4: замените G-... в коде Google Tag в <head>, если потребуется другой счётчик.
+
+    Метрика: замените номер счётчика XXXXXXXX в 3 местах в коде Метрики в <head>.
